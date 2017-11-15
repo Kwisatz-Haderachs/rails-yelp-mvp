@@ -23,7 +23,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     respond_to do |format|
       if @restaurant.save
-        redirect_to @restaurant, notice: 'Restaurant was successfully created.'
+        redirect_to restaurant, notice: 'Restaurant was successfully created.'
       else
         render :new
       end
@@ -34,7 +34,7 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-
+    redirect_to restaurants_path(@restaurant), notice: "It's been deleted!!"
   end
 
   def new
