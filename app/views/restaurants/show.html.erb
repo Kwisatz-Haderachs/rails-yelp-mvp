@@ -1,2 +1,24 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+
+<div class="container">
+<h1><%= @restaurant.name %></h1>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <ul class = "show_list">
+    <li><h3> Address: <%= @restaurant.address %></h3></li>
+    <li><h3>Phone Number: <%= @restaurant.phone_number %></h3></li>
+    <li><h3>Category: <%= @restaurant.category.capitalize %></h3> </li>
+    <li> <h3><%= link_to 'Edit', edit_restaurant_path(@restaurant) %></h3></li>
+    <li><h3><%= link_to 'Review', new_restaurant_review_path(@restaurant) %></h3></li>
+    <li> <h3><%= link_to 'Obliterate', @restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></h3></li>
+    </ul>
+    </div>
+  </div>
+  <div class = "rating">
+    <h2>Reviews:</h2>
+     <% @reviews.each do |r| %>
+    <h3> Rating: <%= r.rating %></h3>
+    <p> Comment: <%= r.content %></p>
+    <% end %>
+  </div>
+  <div class="link"><%=  link_to 'Back', restaurants_path %></div>
+</div>

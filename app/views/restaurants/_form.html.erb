@@ -1,11 +1,13 @@
-<% form_for(@restaurant) do |f| -%>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.label :phone_number %>
-  <%= f.text_field :phone_number %>
-  <%= f.label :category %>
-  <%= f.text_field :category %>
-  <%= f.submit %>
-<% end -%>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <%= simple_form_for [@restaurant] do |f| %>
+        <%= f.input :name %>
+        <%= f.input :address %>
+        <%= f.input :phone_number %>
+        <%= f.input :category, collection: ['chinese', 'italian', 'japanese', 'belgian', 'french', 'german', 'indian', 'thai']%>
+        <%= f.submit "add a review", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

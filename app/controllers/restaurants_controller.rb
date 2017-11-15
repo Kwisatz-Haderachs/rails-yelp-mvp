@@ -6,38 +6,36 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-
+    @reviews = @restaurant.reviews
   end
 
   def update
-    respond_to do |format|
       if @restaurant.update(restaurant_params)
         redirect_to @restaurant, notice: 'Restaurant was successfully updated.'
       else
          render :edit
       end
-    end
   end
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    respond_to do |format|
       if @restaurant.save
         redirect_to restaurant, notice: 'Restaurant was successfully created.'
       else
         render :new
       end
-    end
   end
 
   def edit
   end
 
   def destroy
-    redirect_to restaurants_path(@restaurant), notice: "It's been deleted!!"
+    @restaurant.destroy
+    redirect_to restaurants_path, notice: "It's been deleted!!"
   end
 
   def new
+    @restaurant = Restaurant.new
   end
 
   def set_restaurant
@@ -45,6 +43,6 @@ class RestaurantsController < ApplicationController
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :category, :phone_number, :rating)
+    params.require(:restaurant).permit(:name, :address, :category, :phone_number)
   end
 end

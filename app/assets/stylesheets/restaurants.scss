@@ -1,3 +1,27 @@
 // Place all the styles related to the restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  background-color: rgba(80, 80, 80, 0.2);
+}
+.list tbody tr td {
+  font-size: 20px;
+  padding-left: 16px;
+}
+.list thead tr th {
+  font-size: 25px;
+
+}
+.link {
+  font-size: 25px;
+  text-align: right;
+}
+
+.show_list li {
+  padding: 8px;
+  list-style: none;
+}
+.rating {
+  padding: 8px;
+}
